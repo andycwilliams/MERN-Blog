@@ -1,8 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../images/thumbnail.jpg";
-import { FaBars } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
 
 const Footer = () => {
   return (
