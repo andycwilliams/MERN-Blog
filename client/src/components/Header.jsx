@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../images/thumbnail.jpg";
-// import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 
 const Header = () => {
@@ -13,7 +12,7 @@ const Header = () => {
         </Link>
         <ul className="nav__menu">
           <li>
-            <Link to="/profile">Ernest Achiever</Link>
+            <Link to="/profile/asdf">Ernest Achiever</Link>
           </li>
           <li>
             <Link to="/create">Create Post</Link>
