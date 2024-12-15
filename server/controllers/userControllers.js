@@ -138,7 +138,7 @@ const changeAvatar = async (req, res, next) => {
       path.join(__dirname, "..", "uploads", newFileName),
       async (err) => {
         if (err) {
-          return next(new HttpError(error));
+          return next(new HttpError(err));
         }
 
         const updatedAvatar = await User.findByIdAndUpdate(
@@ -163,9 +163,9 @@ const changeAvatar = async (req, res, next) => {
 // PROTECTED
 const editUser = async (req, res, next) => {
   try {
-    const { name, email, currentPassword, newPassword, newConfirmNewPassword } =
+    const { name, email, currentPassword, newPassword, confirmNewPassword } =
       req.body;
-    if (!name || !email || currentPassword || !newPassword) {
+    if (!name || !email || !currentPassword || !newPassword) {
       return next(new HttpError("Please fill in all fields.", 422));
     }
 
@@ -187,7 +187,7 @@ const editUser = async (req, res, next) => {
       return next(new HttpError("Invalid current password", 422));
     }
 
-    if (newPassword !== newConfirmNewPassword) {
+    if (newPassword !== confirmNewPassword) {
       return next(new HttpError("New passwords do not match.", 422));
     }
 
