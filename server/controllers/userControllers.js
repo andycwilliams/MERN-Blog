@@ -29,8 +29,7 @@ const registerUser = async (req, res, next) => {
 
     if (password.trim().length < 6) {
       return next(
-        new HttpError("Password should be at least 6 characters."),
-        422
+        new HttpError("Password should be at least 6 characters.", 422)
       );
     }
 

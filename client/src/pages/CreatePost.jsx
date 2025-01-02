@@ -6,6 +6,7 @@ const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("Uncategorized");
   const [description, setDescription] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [thumbnail, setThumbnail] = useState("");
 
   const modules = {
