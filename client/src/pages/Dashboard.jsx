@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { DUMMY_POSTS } from "../data";
+import { UserContext } from "../context/userContext";
 
 const Dashboard = () => {
   // eslint-disable-next-line no-unused-vars
   const [posts, setPosts] = useState(DUMMY_POSTS);
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  const token = currentUser?.token;
+
+  // Redirect to login page for any user who is not logged in
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <section className="dashboard">

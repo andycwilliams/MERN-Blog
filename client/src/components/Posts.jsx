@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PostItem from "./PostItem";
 import { DUMMY_POSTS } from "./../data";
 

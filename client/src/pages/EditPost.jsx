@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { UserContext } from "../context/userContext";
 
 const EditPosts = () => {
   const [title, setTitle] = useState("");
@@ -8,6 +10,16 @@ const EditPosts = () => {
   const [description, setDescription] = useState("");
   // eslint-disable-next-line no-unused-vars
   const [thumbnail, setThumbnail] = useState("");
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  const token = currentUser?.token;
+
+  // Redirect to login page for any user who is not logged in
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
 
   const modules = {
     toolbar: [
