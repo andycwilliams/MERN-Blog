@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ReactTimeAgo from "react-time-ago"
-import TimeAgo from 'javascript-time-ago'
-import en from 'javascript-time-ago/locale/en.json'
-import ru from 'javascript-time-ago/locale/ru.json'
+import ReactTimeAgo from "react-time-ago";
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en.json";
+import ru from "javascript-time-ago/locale/ru.json";
 
-TimeAgo.addDefaultLocale(en)
-TimeAgo.addLocale(ru)
+TimeAgo.addDefaultLocale(en);
+TimeAgo.addLocale(ru);
 
 const PostAuthor = ({ authorID, createdAt }) => {
   const [author, setAuthor] = useState({});
@@ -25,10 +25,10 @@ const PostAuthor = ({ authorID, createdAt }) => {
     };
 
     getAuthor();
-  }, []);
+  }, [authorID]);
 
   return (
-    <Link to={`/posts/users/dsfgsdfgds`} className="post__author">
+    <Link to={`/posts/users/${authorID}`} className="post__author">
       <div className="post__author-avatar">
         <img
           src={`${process.env.REACT_APP_ASSETS_URL}/uploads/${author?.avatar}`}
@@ -37,7 +37,9 @@ const PostAuthor = ({ authorID, createdAt }) => {
       </div>
       <div className="post__author-details">
         <h5>By: {author?.name}</h5>
-        <small><ReactTimeAgo date={new Date(createdAt)} locale='en-US' /></small>
+        <small>
+          <ReactTimeAgo date={new Date(createdAt)} locale="en-US" />
+        </small>
       </div>
     </Link>
   );
