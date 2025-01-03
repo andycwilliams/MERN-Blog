@@ -1,16 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PostItem from "./PostItem";
-import { DUMMY_POSTS } from "./../data";
+import Loader from "./Loader";
+import axios from "axios";
 
 const Posts = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [posts, setPosts] = useState(DUMMY_POSTS);
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setIsLoading(true);
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_BASE_URL}/posts`
+        );
+        setPosts(response?.data);
+      } catch (error) {
+        console.log(error);
+      }
+
+      setIsLoading(false);
+    };
+
+    fetchPosts();
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <section>
       {posts.length > 0 ? (
         <div className="container posts__container">
           {posts.map(
-            ({ id, thumbnail, category, title, description, authorID }) => (
+            ({
+              _id: id,
+              thumbnail,
+              category,
+              title,
+              description,
+              creator,
+              createdAt,
+            }) => (
               <PostItem
                 key={id}
                 postID={id}
@@ -18,7 +50,8 @@ const Posts = () => {
                 category={category}
                 title={title}
                 description={description}
-                authorID={authorID}
+                authorID={creator}
+                createdAt={createdAt}
               />
             )
           )}
