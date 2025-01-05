@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 const AuthorPosts = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
   const { id } = useParams();
 
   useEffect(() => {

@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { UserContext } from "../context/userContext";
+import axios from "axios";
 
 const EditPosts = () => {
   const [title, setTitle] = useState("");
@@ -10,9 +11,11 @@ const EditPosts = () => {
   const [description, setDescription] = useState("");
   // eslint-disable-next-line no-unused-vars
   const [thumbnail, setThumbnail] = useState("");
+  const [error, setError] = useState("");
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
   const token = currentUser?.token;
+  const { id } = useParams();
 
   // Redirect to login page for any user who is not logged in
   useEffect(() => {
@@ -61,12 +64,54 @@ const EditPosts = () => {
     "Weather",
   ];
 
+  useEffect(() => {
+    const getPost = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_BASE_URL}/posts/${id}`
+        );
+        setTitle(response.data.title);
+        setDescription(response.data.description);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getPost();
+  }, [id]);
+
+  const editPost = async (e) => {
+    e.preventDefault();
+
+    const postData = new FormData();
+    postData.set("title", title);
+    postData.set("category", category);
+    postData.set("description", description);
+    postData.set("thumbnail", thumbnail);
+
+    for (let [key, value] of postData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+    try {
+      const response = await axios.patch(
+        `${process.env.REACT_APP_BASE_URL}/posts/${id}`,
+        postData,
+        { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
+      );
+      if (response.status === 200) {
+        return navigate("/");
+      }
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
+
   return (
     <section className="create-post">
       <div className="container">
         <h2>Edit Post</h2>
-        <p className="form__error-message">This is an error message</p>
-        <form className="form create-post__form">
+        {error && <p className="form__error-message">{error}</p>}
+        <form className="form create-post__form" onSubmit={editPost}>
           <input
             type="text"
             placeholder="Title"

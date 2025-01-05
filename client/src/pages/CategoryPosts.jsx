@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 const CategoryPosts = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
   const { category } = useParams();
 
   useEffect(() => {
