@@ -62,9 +62,6 @@ const CreatePost = () => {
     "Weather",
   ];
 
-  console.log("Modules:", modules);
-  console.log("Formats:", formats);
-
   const createPost = async (e) => {
     e.preventDefault();
 
