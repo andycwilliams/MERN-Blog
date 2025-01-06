@@ -1,3 +1,4 @@
+// Asset Import
 import LoadingGif from "../images/loading.gif";
 
 const Loader = () => {

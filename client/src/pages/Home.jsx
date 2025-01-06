@@ -1,3 +1,4 @@
+// Component Imports
 import Posts from "../components/Posts";
 
 const Home = () => {

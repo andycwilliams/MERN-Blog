@@ -1,4 +1,6 @@
+// React Router Imports
 import { Link } from "react-router-dom";
+// Component Imports
 import PostAuthor from "./PostAuthor";
 
 const PostItem = ({

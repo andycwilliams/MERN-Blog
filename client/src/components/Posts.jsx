@@ -1,7 +1,11 @@
+// React Imports
 import { useEffect, useState } from "react";
-import PostItem from "./PostItem";
+// Component Imports
 import Loader from "./Loader";
+import PostItem from "./PostItem";
+// Axios Import
 import axios from "axios";
+
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);

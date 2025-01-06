@@ -1,5 +1,8 @@
+// React Imports
 import { useState } from "react";
+// React Router Imports
 import { Link, useNavigate } from "react-router-dom";
+// Axios Import
 import axios from "axios";
 
 const Register = () => {

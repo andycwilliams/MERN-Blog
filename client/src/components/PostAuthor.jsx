@@ -1,10 +1,16 @@
+// React Imports
 import { useEffect, useState } from "react";
+// React Router Imports
 import { Link } from "react-router-dom";
-import axios from "axios";
+// External Library Imports
 import ReactTimeAgo from "react-time-ago";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
 import ru from "javascript-time-ago/locale/ru.json";
+// Asset Imports
+import avatarPlaceholder from "../images/avatarPlaceholder.png";
+// Axios Import
+import axios from "axios";
 
 TimeAgo.addDefaultLocale(en);
 TimeAgo.addLocale(ru);
@@ -31,8 +37,12 @@ const PostAuthor = ({ authorID, createdAt }) => {
     <Link to={`/posts/users/${authorID}`} className="post__author">
       <div className="post__author-avatar">
         <img
-          src={`${process.env.REACT_APP_ASSETS_URL}/uploads/${author?.avatar}`}
-          alt=""
+          src={
+            author?.avatar
+              ? `${process.env.REACT_APP_ASSETS_URL}/uploads/${author.avatar}`
+              : avatarPlaceholder
+          }
+          alt="Author Avatar"
         />
       </div>
       <div className="post__author-details">

@@ -1,8 +1,13 @@
+// React Imports
 import { useEffect, useState } from "react";
-import PostItem from "../components/PostItem";
+// Component Imports
 import Loader from "../components/Loader";
+import PostItem from "../components/PostItem";
+// Axios Import
 import axios from "axios";
+// React Router Imports
 import { useParams } from "react-router-dom";
+
 
 const AuthorPosts = () => {
   const [posts, setPosts] = useState([]);

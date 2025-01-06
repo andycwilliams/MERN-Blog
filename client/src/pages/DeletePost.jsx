@@ -1,7 +1,12 @@
+// React Imports
 import { useContext, useEffect, useState } from "react";
+// React Router Imports
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { UserContext } from "../context/userContext";
+// Component Imports
 import Loader from "../components/Loader";
+// Context Imports
+import { UserContext } from "../context/userContext";
+// Axios Import
 import axios from "axios";
 
 const DeletePost = ({ postId: id }) => {

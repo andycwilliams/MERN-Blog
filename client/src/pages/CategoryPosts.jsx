@@ -1,8 +1,12 @@
+// React Imports
 import { useEffect, useState } from "react";
-import PostItem from "../components/PostItem";
-import Loader from "../components/Loader";
-import axios from "axios";
+// React Router Imports
 import { useParams } from "react-router-dom";
+// Component Imports
+import Loader from "../components/Loader";
+import PostItem from "../components/PostItem";
+// Axios Import
+import axios from "axios";
 
 const CategoryPosts = () => {
   const [posts, setPosts] = useState([]);

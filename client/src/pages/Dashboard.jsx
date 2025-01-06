@@ -1,14 +1,19 @@
+// React Imports
 import { useContext, useEffect, useState } from "react";
+// React Router Imports
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { DUMMY_POSTS } from "../data";
-import { UserContext } from "../context/userContext";
-import Loader from "../components/Loader";
-import axios from "axios";
+// Component Imports
 import DeletePost from "./DeletePost";
+// Context Imports
+import { UserContext } from "../context/userContext";
+// Axios Import
+import axios from "axios";
+
+// import Loader from "../components/Loader";
 
 const Dashboard = () => {
+  const [posts, setPosts] = useState([]);
   // eslint-disable-next-line no-unused-vars
-  const [posts, setPosts] = useState(DUMMY_POSTS);
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
   const { currentUser } = useContext(UserContext);
@@ -52,7 +57,7 @@ const Dashboard = () => {
         <div className="container dashboard__container">
           {posts.map((post) => {
             return (
-              <article key={post.id} className="dashboard__post">
+              <article key={post._id} className="dashboard__post">
                 <div className="dashboard__post-info">
                   <div className="dashboard__post-thumbnail">
                     <img

@@ -1,7 +1,12 @@
+// React Imports
 import { useEffect, useState } from "react";
+// React Router Imports
 import { Link } from "react-router-dom";
+// Component Imports
 import Loader from "../components/Loader";
+// Axios Import
 import axios from "axios";
+
 
 const Authors = () => {
   const [authors, setAuthors] = useState([]);

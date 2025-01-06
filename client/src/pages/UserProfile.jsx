@@ -1,8 +1,12 @@
+// React Imports
 import { useContext, useEffect, useState } from "react";
+// React Router Imports
 import { Link, useNavigate } from "react-router-dom";
-import { FaEdit } from "react-icons/fa";
-import { FaCheck } from "react-icons/fa";
+// Icon Imports
+import { FaCheck, FaEdit } from "react-icons/fa";
+// Context Imports
 import { UserContext } from "../context/userContext";
+// Axios Import
 import axios from "axios";
 
 const UserProfile = () => {
@@ -97,7 +101,7 @@ const UserProfile = () => {
               <img
                 src={
                   `${process.env.REACT_APP_ASSETS_URL}/uploads/${avatar}` ||
-                  "avatarPlaceholder.png"
+                  "../images/avatarPlaceholder.png"
                 }
                 alt="User Avatar"
               />

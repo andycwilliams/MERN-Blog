@@ -1,9 +1,15 @@
+// React Imports
 import { useContext, useState } from "react";
+// React Router Imports
 import { Link } from "react-router-dom";
+// Asset Imports
 import Logo from "../images/logoPlaceholder.png";
-import { FaBars } from "react-icons/fa";
+// Icon Imports
 import { AiOutlineClose } from "react-icons/ai";
+import { FaBars } from "react-icons/fa";
+// Context Imports
 import { UserContext } from "../context/userContext";
+
 
 const Header = () => {
   const [isNavShowing, setIsNavShowing] = useState(

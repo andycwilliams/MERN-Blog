@@ -1,9 +1,15 @@
+// React Imports
 import { useContext, useEffect, useState } from "react";
+// React Router Imports
 import { Link, useParams } from "react-router-dom";
-import PostAuthor from "../components/PostAuthor";
-import { UserContext } from "../context/userContext";
+// Component Imports
 import DeletePost from "./DeletePost";
+import PostAuthor from "../components/PostAuthor";
+// Context Imports
+import { UserContext } from "../context/userContext";
+// Axios Import
 import axios from "axios";
+
 
 const PostDetail = () => {
   const { id } = useParams();
