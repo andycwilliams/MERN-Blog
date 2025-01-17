@@ -21,8 +21,7 @@ const DeletePost = ({ postId: id }) => {
     if (!token) {
       navigate("/login");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [navigate, token]);
 
   const removePost = async () => {
     setIsLoading(true);

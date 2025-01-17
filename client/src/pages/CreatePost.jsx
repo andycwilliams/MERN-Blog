@@ -25,7 +25,7 @@ const CreatePost = () => {
     if (!token) {
       navigate("/login");
     }
-  }, []);
+  }, [navigate, token]);
 
   const modules = {
     toolbar: [
@@ -57,14 +57,12 @@ const CreatePost = () => {
   ];
 
   const POST_CATEGORIES = [
-    "Agriculture",
-    "Business",
-    "Education",
-    "Entertainment",
-    "Art",
-    "Investment",
+    "Action & Advocacy",
+    "Community Impact",
+    "Education & Resources",
+    "Events & Fundraising",
     "Uncategorized",
-    "Weather",
+    "Volunteer Stories",
   ];
 
   const createPost = async (e) => {

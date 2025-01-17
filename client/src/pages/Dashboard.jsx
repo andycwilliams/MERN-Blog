@@ -25,8 +25,7 @@ const Dashboard = () => {
     if (!token) {
       navigate("/login");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [navigate, token]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -49,7 +48,7 @@ const Dashboard = () => {
     };
 
     fetchPosts();
-  }, []);
+  }, [id, token]);
 
   return (
     <section className="dashboard">

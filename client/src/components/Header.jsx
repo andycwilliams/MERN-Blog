@@ -10,7 +10,6 @@ import { FaBars } from "react-icons/fa";
 // Context Imports
 import { UserContext } from "../context/userContext";
 
-
 const Header = () => {
   const [isNavShowing, setIsNavShowing] = useState(
     window.innerWidth > 800 ? true : false
@@ -29,6 +28,7 @@ const Header = () => {
         <Link to="/" className="nav__logo" onClick={closeNavHandler}>
           <img src={Logo} alt="Navbar Logo" />
         </Link>
+        <h1>MERN Blog</h1>
         {currentUser?.id && isNavShowing && (
           <ul className="nav__menu">
             <li>

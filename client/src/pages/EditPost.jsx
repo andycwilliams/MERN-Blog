@@ -28,7 +28,7 @@ const EditPosts = () => {
     if (!token) {
       navigate("/login");
     }
-  }, []);
+  }, [navigate, token]);
 
   const modules = {
     toolbar: [

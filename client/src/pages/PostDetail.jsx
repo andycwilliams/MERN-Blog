@@ -35,7 +35,7 @@ const PostDetail = () => {
     };
 
     getPost();
-  }, []);
+  }, [id]);
 
   return (
     <section className="post-detail">

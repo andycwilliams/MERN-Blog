@@ -26,8 +26,7 @@ const UserProfile = () => {
     if (!token) {
       navigate("/login");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [navigate, token]);
 
   useEffect(() => {
     const getUser = async () => {
@@ -45,7 +44,7 @@ const UserProfile = () => {
     };
 
     getUser();
-  }, []);
+  }, [currentUser.id, token]);
 
   const changeAvatarHandler = async () => {
     setIsAvatarTouched(false);

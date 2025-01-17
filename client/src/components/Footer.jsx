@@ -6,32 +6,34 @@ const Footer = () => {
     <footer>
       <ul className="footer__categories">
         <li>
-          <Link to="posts/categories/Agriculture">Agriculture</Link>
+          <Link to="posts/categories/Action%20%26%20Advocacy">
+            Action & Advocacy
+          </Link>
         </li>
         <li>
-          <Link to="posts/categories/Business">Business</Link>
+          <Link to="posts/categories/Community%20Impact">Community Impact</Link>
         </li>
         <li>
-          <Link to="posts/categories/Education">Education</Link>
+          <Link to="posts/categories/Education%20%26%20Resources">
+            Education & Resources
+          </Link>
         </li>
         <li>
-          <Link to="posts/categories/Entertainment">Entertainment</Link>
-        </li>
-        <li>
-          <Link to="posts/categories/Art">Art</Link>
-        </li>
-        <li>
-          <Link to="posts/categories/Investment">Investment</Link>
+          <Link to="posts/categories/Events%20%26%20Fundraising">
+            Events & Fundraising
+          </Link>
         </li>
         <li>
           <Link to="posts/categories/Uncategorized">Uncategorized</Link>
         </li>
         <li>
-          <Link to="posts/categories/Weather">Weather</Link>
+          <Link to="posts/categories/Volunteer%20Stories">
+            Volunteer Stories
+          </Link>
         </li>
       </ul>
       <div className="footer__copyright">
-        <small>All Rights Reserved &copy; Copyright, EGATOR Tutorials.</small>
+        <small>&copy; {new Date().getFullYear()}. All rights reserved.</small>
       </div>
     </footer>
   );

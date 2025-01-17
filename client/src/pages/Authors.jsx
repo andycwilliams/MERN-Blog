@@ -7,7 +7,6 @@ import Loader from "../components/Loader";
 // Axios Import
 import axios from "axios";
 
-
 const Authors = () => {
   const [authors, setAuthors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,6 +35,9 @@ const Authors = () => {
 
   return (
     <section className="authors">
+      <div className="container">
+        <h2>Our Authors</h2>
+      </div>
       {authors.length > 0 ? (
         <div className="container authors__container">
           {authors.map(({ _id: id, avatar, name, posts }) => {
@@ -49,7 +51,7 @@ const Authors = () => {
                 </div>
                 <div className="author__info">
                   <h4>{name}</h4>
-                  <p>{posts}</p>
+                  <p>Posts: {posts}</p>
                 </div>
               </Link>
             );
