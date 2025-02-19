@@ -21,6 +21,11 @@ app.use("/api/posts", postRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
+app.use(express.static("build"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
 connect(process.env.MONGO_URI)
   .then(
     app.listen(process.env.PORT || 5000, () =>
