@@ -31,7 +31,8 @@ const Header = () => {
         <h1>MERN Blog</h1>
         {currentUser?.id && isNavShowing && (
           <ul className="nav__menu">
-            <li>
+            <li className="nav__menu__avatar__button">
+              {/* <img src={Logo} alt="Navbar Logo" /> */}
               <Link to={`/profile/${currentUser.id}`} onClick={closeNavHandler}>
                 {currentUser?.name}
               </Link>
@@ -46,7 +47,7 @@ const Header = () => {
                 Authors
               </Link>
             </li>
-            <li>
+            <li className="nav__menu__logout__button">
               <Link to="/logout" onClick={closeNavHandler}>
                 Logout
               </Link>

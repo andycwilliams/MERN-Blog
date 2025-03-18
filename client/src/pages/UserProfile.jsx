@@ -90,7 +90,7 @@ const UserProfile = () => {
   return (
     <section className="profile">
       <div className="container profile__container">
-        <Link to={`/myposts/${currentUser.id}`} className="btn">
+        <Link to={`/myposts/${currentUser.id}`} className="btn primary">
           My posts
         </Link>
 
